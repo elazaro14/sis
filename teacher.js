@@ -13,3 +13,7 @@ function getGrade(score) {
   else if (score >= 0 && score <= 29) return "F";
   else return "Invalid";
 }
+students.filter(s =>
+  user.classes.includes(s.class) &&
+  s.subjects.some(sub => user.subjects.includes(sub))
+);
