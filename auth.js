@@ -27,3 +27,27 @@ function login() {
     });
 }
 <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"></script>
+const db = firebase.firestore();
+
+function register() {
+  const email = document.getElementById("regEmail").value;
+  const password = document.getElementById("regPassword").value;
+  const role = document.getElementById("regRole").value;
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      const uid = userCredential.user.uid;
+      return db.collection("users").doc(uid).set({
+        email,
+        role,
+        subjects: [],
+        classes: []
+      });
+    })
+    .then(() => {
+      alert("User registered successfully!");
+    })
+    .catch(error => {
+      alert("Registration failed: " + error.message);
+    });
+}
