@@ -12,3 +12,21 @@
 </select>
 <button onclick="registerUser()">Register</button>
 <div id="userList"></div>
+<!-- User Registration -->
+<h3>Create New User</h3>
+<input type="text" id="newUsername" placeholder="Username">
+<input type="password" id="newPassword" placeholder="Password">
+<select id="newRole">
+  <option value="teacher">Teacher</option>
+  <option value="admin">Admin</option>
+</select>
+<button onclick="registerUser()">Register</button>
+<div id="userList"></div>
+
+<!-- Student Registration -->
+<h3>Register New Student</h3>
+<input type="text" id="studentName" placeholder="Full Name">
+<input type="text" id="studentClass" placeholder="Class (e.g., Form 2)">
+<input type="text" id="studentSubjects" placeholder="Subjects (comma-separated)">
+<button onclick="registerStudent()">Register Student</button>
+<div id="studentList"></div>
