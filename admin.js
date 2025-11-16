@@ -94,3 +94,4 @@ window.onload = () => {
 };
 const selectedSubjects = Array.from(document.getElementById("subjectSelect").selectedOptions)
   .map(opt => opt.value);
+students.push({ id, name, class: className, subjects: selectedSubjects });
