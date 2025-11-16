@@ -95,3 +95,26 @@ window.onload = () => {
 const selectedSubjects = Array.from(document.getElementById("subjectSelect").selectedOptions)
   .map(opt => opt.value);
 students.push({ id, name, class: className, subjects: selectedSubjects });
+function login() {
+  const email = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      const uid = userCredential.user.uid;
+      return db.collection("users").doc(uid).get();
+    })
+    .then(doc => {
+      if (doc.exists) {
+        const role = doc.data().role;
+        if (role === "admin") window.location.href = "admin.html";
+        else if (role === "teacher") window.location.href = "teacher.html";
+        else alert("Unknown role");
+      } else {
+        alert("User role not found");
+      }
+    })
+    .catch(error => {
+      alert("Login failed: " + error.message);
+    });
+}
