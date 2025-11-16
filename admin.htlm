@@ -33,3 +33,5 @@
 <select id="subjectSelect" multiple>
   ${allSubjects.map(sub => `<option value="${sub}">${sub}</option>`).join("")}
 </select>
+<h3>Registered Users</h3>
+<ul id="userList"></ul>
