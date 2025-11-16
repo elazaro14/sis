@@ -1,7 +1,4 @@
-const users = [
-  { username: "admin", password: "admin123", role: "admin" },
-  { username: "teacher1", password: "teach123", role: "teacher" }
-];
+const users = JSON.parse(localStorage.getItem("users")) || [];
 
 function login() {
   const uname = document.getElementById("username").value;
@@ -10,14 +7,8 @@ function login() {
 
   if (user) {
     localStorage.setItem("user", JSON.stringify(user));
-    if (user.role === "admin") window.location.href = "admin.html";
-    else if (user.role === "teacher") window.location.href = "teacher.html";
+    window.location.href = user.role === "admin" ? "admin.html" : "teacher.html";
   } else {
     alert("Invalid credentials");
   }
 }
-const users = [
-  { username: "admin", password: "admin123", role: "admin" },
-  { username: "teacher1", password: "teach123", role: "teacher" }
-];
-const users = JSON.parse(localStorage.getItem("users")) || [];
