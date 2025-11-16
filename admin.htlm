@@ -30,3 +30,6 @@
 <input type="text" id="studentSubjects" placeholder="Subjects (comma-separated)">
 <button onclick="registerStudent()">Register Student</button>
 <div id="studentList"></div>
+<select id="subjectSelect" multiple>
+  ${allSubjects.map(sub => `<option value="${sub}">${sub}</option>`).join("")}
+</select>
