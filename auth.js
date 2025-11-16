@@ -51,3 +51,9 @@ function register() {
       alert("Registration failed: " + error.message);
     });
 }
+function resetPassword() {
+  const email = document.getElementById("resetEmail").value;
+  firebase.auth().sendPasswordResetEmail(email)
+    .then(() => alert("Password reset email sent!"))
+    .catch(error => alert("Error: " + error.message));
+}
