@@ -3,3 +3,12 @@
 <div id="assignments"></div>
 <script src="js/data.js"></script>
 <script src="js/admin.js"></script>
+<h3>Create New User</h3>
+<input type="text" id="newUsername" placeholder="Username">
+<input type="password" id="newPassword" placeholder="Password">
+<select id="newRole">
+  <option value="teacher">Teacher</option>
+  <option value="admin">Admin</option>
+</select>
+<button onclick="registerUser()">Register</button>
+<div id="userList"></div>
