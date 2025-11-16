@@ -26,3 +26,4 @@ function login() {
       alert("Login failed: " + error.message);
     });
 }
+<script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"></script>
