@@ -118,3 +118,16 @@ function login() {
       alert("Login failed: " + error.message);
     });
 }
+const db = firebase.firestore();
+
+function loadUsers() {
+  db.collection("users").get().then(snapshot => {
+    const list = snapshot.docs.map(doc => {
+      const data = doc.data();
+      return `<li>${data.email} - ${data.role}</li>`;
+    }).join("");
+    document.getElementById("userList").innerHTML = `<ul>${list}</ul>`;
+  });
+}
+
+window.onload = loadUsers;
