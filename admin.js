@@ -131,3 +131,11 @@ function loadUsers() {
 }
 
 window.onload = loadUsers;
+function submitGrade(studentId, subject, score, term) {
+  const teacherId = firebase.auth().currentUser.uid;
+  db.collection("grades").doc(studentId).collection("subjects").doc(subject).set({
+    score: parseInt(score),
+    term,
+    teacherId
+  }).then(() => alert("Grade saved!"));
+}
