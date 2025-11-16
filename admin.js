@@ -92,3 +92,5 @@ window.onload = () => {
   showUsers();
   showStudents();
 };
+const selectedSubjects = Array.from(document.getElementById("subjectSelect").selectedOptions)
+  .map(opt => opt.value);
