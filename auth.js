@@ -20,3 +20,4 @@ const users = [
   { username: "admin", password: "admin123", role: "admin" },
   { username: "teacher1", password: "teach123", role: "teacher" }
 ];
+const users = JSON.parse(localStorage.getItem("users")) || [];
